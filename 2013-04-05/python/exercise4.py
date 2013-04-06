@@ -125,9 +125,17 @@ east = STRUCT([wall,wallLeft,wallRight,wallRight02,wallRight03,wallRight04,wallR
 north = R([1,2])(PI/2)(GRID([[-0.36,1.79*4],[0.36],[1.72,-1.43,1.72,-1.43,1.72,-1.43,1.5]]))
 north = T([1,3])([16.14,3.58])(north)
 
-building = STRUCT([building2,east, north])
+building3 = STRUCT([building2,east, north])
 
+
+# Esercizio 4
+window = R([1,2])(PI/2)(GRID([[0.38,-0.7],[0.2],[-0.36,2.86,-0.36,2.86,-0.36,2.86,-0.36,2.1]]))
+windowShifted = T([1,2,3])([16.14,8.068,3.58])(window)
+color = COLOR(BLACK)(windowShifted)
+windowRuoted = R([1,2])(PI/2)(GRID([[-0.36,1.79*4],[0.36],[-1.72,1.43,-1.72,1.43,-1.72,1.43,-2.7]]))
+windowTranslated = T([1,3])([16.14,3.58])(windowRuoted)
+colorWindows = COLOR(BLACK)(windowTranslated)
+window02 = T([1,2,3])([0.36*3+3.58*2-0.13,-0.13,5.08])(GRID([[4.5],[0.3],[2.2,-1.5,2.7,-1,2]]))
+window_color2 = COLOR(BLACK)(window02)
+building = STRUCT([color,colorWindows,building3,window_color2])
 VIEW(building)
-
-
-

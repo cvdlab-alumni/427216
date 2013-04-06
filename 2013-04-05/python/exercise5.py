@@ -125,9 +125,41 @@ east = STRUCT([wall,wallLeft,wallRight,wallRight02,wallRight03,wallRight04,wallR
 north = R([1,2])(PI/2)(GRID([[-0.36,1.79*4],[0.36],[1.72,-1.43,1.72,-1.43,1.72,-1.43,1.5]]))
 north = T([1,3])([16.14,3.58])(north)
 
-building = STRUCT([building2,east, north])
+building3 = STRUCT([building2,east, north])
 
+
+# Esercizio 4
+window = R([1,2])(PI/2)(GRID([[0.38,-0.7],[0.2],[-0.36,2.86,-0.36,2.86,-0.36,2.86,-0.36,2.1]]))
+windowShifted = T([1,2,3])([16.14,8.068,3.58])(window)
+color = COLOR(BLACK)(windowShifted)
+windowRuoted = R([1,2])(PI/2)(GRID([[-0.36,1.79*4],[0.36],[-1.72,1.43,-1.72,1.43,-1.72,1.43,-2.7]]))
+windowTranslated = T([1,3])([16.14,3.58])(windowRuoted)
+colorWindows = COLOR(BLACK)(windowTranslated)
+window02 = T([1,2,3])([0.36*3+3.58*2-0.13,-0.13,5.08])(GRID([[4.5],[0.3],[2.2,-1.5,2.7,-1,2]]))
+window_color2 = COLOR(BLACK)(window02)
+building4 = STRUCT([color,colorWindows,building3,window_color2])
+
+
+# Esercizio 5 
+
+#Scala primo piano
+massimo = 0.56
+minimo = 0.55
+step2D = MKPOL([[[0,0],[0,minimo],[massimo,minimo/2],[massimo,minimo]],[[1,2,3,4]],None])
+step3D = PROD([step2D,Q(0.99)])
+step3D = MAP([S1,S3,S2])(step3D)
+ramp = STRUCT(NN(13)(([step3D,T([1,3])([massimo,minimo/2])])))
+stair1 = T([1,2,3])([1.3,7.59+0.30,0.0])(ramp)
+
+#Scala secondo piano
+ramp2 = STRUCT(NN(13)(([step3D,T([1,3])([massimo,minimo/2])])))
+stair2 = T([1,2,3])([0,7.59+0.18,3.40+0.12])(ramp2)
+
+#Scala terzo piano
+massimo = 0.55
+minimo = 0.54
+ramp3 = STRUCT(NN(12)(([step3D,T([1,3])([massimo,minimo/1.79])])))
+stair3 = T([1,2,3])([7.2,7.65,3.58*2])(ramp3)
+
+building = STRUCT([building4,east,north,stair1,stair2,stair3])
 VIEW(building)
-
-
-
