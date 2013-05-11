@@ -61,7 +61,89 @@ def wheel():
 	cc6 = bezierMappata_2D([c4,c5])
 	cc7 = COLOR(BLACK)(bezierMappata_2D([c5,c6]))
 
-	return STRUCT([cc1,cc2,cc3,cc4,cc5,cc6,cc7])
+	# PRIMO RAGGIO
+
+	r1 = [[1,0.1,0], [-1,0.1,0]]
+	r1 = BEZIER(S1)(r1)
+
+	r1b = [[1,-0.1,0], [-1,-0.1,0]]
+	r1b = BEZIER(S1)(r1b)
+
+	r1r = [[1,0.1,1], [-1,0.1,1]]
+	r1r = BEZIER(S1)(r1r)
+
+	r1br = [[1,-0.1,1], [-1,-0.1,1]]
+	r1br = BEZIER(S1)(r1br)
+
+	r = bezierMappata_2D([r1b,r1])
+	rr1 = bezierMappata_2D([r1br,r1r])
+
+	m1 = bezierMappata_2D([r1,r1r])
+	m2 = bezierMappata_2D([r1b,r1br])
+
+	# SECONDO RAGGIO
+
+	r2 = [[0.1,1,0], [0.1,-1,0]]
+	r2 = BEZIER(S1)(r2)
+
+	r2b = [[-0.1,1,0], [-0.1,-1,0]]
+	r2b = BEZIER(S1)(r2b)
+
+	r2r = [[0.1,1,1], [0.1,-1,1]]
+	r2r = BEZIER(S1)(r2r)
+
+	r2br = [[-0.1,1,1], [-0.1,-1,1]]
+	r2br = BEZIER(S1)(r2br)
+
+	rr2 = bezierMappata_2D([r2b,r2])
+	rr2b = bezierMappata_2D([r2br,r2r])
+
+	m3 = bezierMappata_2D([r2,r2r])
+	m4 = bezierMappata_2D([r2b,r2br])
+
+	# TERZO RAGGIO
+
+	r3 = [[0.75,0.65,0], [-0.65,-0.75,0]]
+	r3 = BEZIER(S1)(r3)
+
+	r3b = [[0.65,0.75,0], [-0.75,-0.65,0]]
+	r3b = BEZIER(S1)(r3b)
+
+	r3r = [[0.75,0.65,1], [-0.65,-0.75,1]]
+	r3r = BEZIER(S1)(r3r)
+
+	r3br = [[0.65,0.75,1], [-0.75,-0.65,1]]
+	r3br = BEZIER(S1)(r3br)
+
+	rr3 = bezierMappata_2D([r3,r3b])
+	rr3b = bezierMappata_2D([r3br,r3r])
+
+	m5 = bezierMappata_2D([r3,r3r])
+	m6 = bezierMappata_2D([r3b,r3br])
+
+	# QUARTO RAGGIO
+
+	r4 = [[-0.75,0.65,0], [0.65,-0.75,0]]
+	r4 = BEZIER(S1)(r4)
+
+	r4b = [[-0.65,0.75,0], [0.75,-0.65,0]]
+	r4b = BEZIER(S1)(r4b)
+
+	r4r = [[-0.75,0.65,1], [0.65,-0.75,1]]
+	r4r = BEZIER(S1)(r4r)
+
+	r4br = [[-0.65,0.75,1], [0.75,-0.65,1]]
+	r4br = BEZIER(S1)(r4br)
+
+	rr4 = bezierMappata_2D([r4,r4b])
+	rr4b = bezierMappata_2D([r4br,r4r])
+
+	m7 = bezierMappata_2D([r4,r4r])
+	m8 = bezierMappata_2D([r4b,r4br])
+
+
+	raggi = COLOR(BLACK)(STRUCT([r,rr1,m1,m2,rr2,rr2b,m3,m4,rr3,rr3b,m5,m6,rr4,rr4b,m7,m8]))
+	return STRUCT([cc1,cc2,cc3,cc4,cc5,cc6,cc7,raggi])
 
 
 def profile():
@@ -166,6 +248,6 @@ s2 = T([1,2,3])([2.38,-0.8,1.6])(s2)
 s3 = T([1,2,3])([-1.60,-0.8,-1.6])(s3)
 s4 = T([1,2,3])([-1.60,-0.8,1.6])(s4)
 
-f = STRUCT([s1,s2,s3,s4,p])
+f = STRUCT([p,s1,s2,s3,s4])
 
 VIEW(f)
