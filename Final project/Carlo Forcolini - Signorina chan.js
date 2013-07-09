@@ -43,7 +43,7 @@ var ssc4 = bezierMappata_2D([sc2,sc2d]);
 var sscc1 = bezierMappata_2D([scc1,scc2]);
 var sscc2 = bezierMappata_2D([scc3,scc4]);
 
-var strutturaCurva = STRUCT([ssc1,ssc2,ssc3,ssc4,sscc1,sscc2]);
+var strutturaCurva = COLOR([0,0,0])(STRUCT([ssc1,ssc2,ssc3,ssc4,sscc1,sscc2]));
 
 // gambe struttura curva
 var g1 = [[3.93, 2.3,2.25], [4.09, 1.9,2.25], [4.32, 2.27,2.25], [5.4, 1.46,2.25]];
@@ -80,7 +80,7 @@ var gs6 = bezierMappata_2D([g3d,g4d]);
 var gs7 = bezierMappata_2D([g3,g3d]);
 var gs8 = bezierMappata_2D([g4,g4d]);
 
-var gambe = STRUCT([gs1,gs2,gs3,gs4,gs5,gs6,gs7,gs8]);
+var gambe = COLOR([0,0,0])(STRUCT([gs1,gs2,gs3,gs4,gs5,gs6,gs7,gs8]));
 
 // basi struttura
 function base(){
@@ -128,7 +128,7 @@ function base(){
 	base2 = R([0,2])(PI)(base2);
 	base2 = T([0,1,2])([7.4,0.035,5])(base2);
 
-	return STRUCT([base, base2]);
+	return COLOR([92/255,92/255,92/255])(STRUCT([base, base2]));
 }
 var basi = base();
 
@@ -286,10 +286,8 @@ var cuscinoPicco = BEZIER(S0)(cuscinoPicco);
 var cuscinoPiccoD = [[1.6, 2.68,3.9], [2.18, 3.47,3.9], [3.56, 3.19,3.9], [3.7, 2.29,3.9]];
 var cuscinoPiccoD = BEZIER(S0)(cuscinoPiccoD);
 
-// var p2 = COLOR([92/255,92/255,92/255])(bezierMappata_2D([cuscinoInizio, cuscinoPicco, cuscinoPiccoD, cuscinoFine]));
-// var strutturaMedia = COLOR([0,0,0])(STRUCT([cs5,cs6,cs7,cs8,ccc3,ccc4]));
-var p3 = bezierMappata_2D([cuscinoInizio, cuscinoPicco, cuscinoPiccoD, cuscinoFine]);
-var strutturaBassa = STRUCT([cs9,cs10,cs11,cs12,ccc5,ccc6]);
+var p3 = COLOR([92/255,92/255,92/255])(bezierMappata_2D([cuscinoInizio, cuscinoPicco, cuscinoPiccoD, cuscinoFine]));
+var strutturaBassa = COLOR([0,0,0])(STRUCT([cs9,cs10,cs11,cs12,ccc5,ccc6]));
 
 
 var cuscinoBasso = STRUCT([strutturaBassa, p3]);
