@@ -122,99 +122,36 @@ function halfStructure(z){
 	return COLOR([0/255,0/255,0/255])(STRUCT([bracciolo,verticale,orizzontale]));
 }
 
-// seduta verticale
-// var sv1 = [[2.66, 1.35,0.5], [2.45, 3.14,0.5], [2.55, 2.33,0.5], [2.29, 3.91,0.5]];
-// var sv1 = BEZIER(S0)(sv1);
+var z_init = 0;
+var z_end = 4.5;
 
-// var sv2 = [[3.18, 1.4,0.5], [3.02, 2.68,0.5], [3.08, 2.29,0.5], [2.9, 3.97,0.5]];
-// var sv2 = BEZIER(S0)(sv2);
-
-// var sv1d = [[2.67, 1.35,4], [2.45, 3.14,4], [2.55, 2.33,4], [2.38, 3.91,4]];
-// var sv1d = BEZIER(S0)(sv1d);
-
-// var sv2d = [[3.18, 1.42,4], [3.02, 2.68,4], [3.08, 2.29,4], [2.9, 3.97,4]];
-// var sv2d = BEZIER(S0)(sv2d);
-
-// var svc1 = [[2.67, 1.35,0.5],[3.18, 1.42,0.5]];
-// var svc1 = BEZIER(S0)(svc1);
-
-// var svc2 = [[2.67, 1.35,4],[3.18, 1.42,4]];
-// var svc2 = BEZIER(S0)(svc2);
-
-// var svc3 = [[2.38, 3.91,0.5],[2.9, 3.97,0.5]];
-// var svc3 = BEZIER(S0)(svc3);
-
-// var svc4 = [[2.38, 3.91,4],[2.9, 3.97,4]];
-// var svc4 = BEZIER(S0)(svc4);
-
-// var ssv1 = bezierMappata_2D([sv1,sv2]);
-// var ssv2 = bezierMappata_2D([sv1d,sv2d]);
-// var ssv3 = bezierMappata_2D([sv1,sv1d]);
-// var ssv4 = bezierMappata_2D([sv2,sv2d]);
-// var ssvc1 = bezierMappata_2D([svc1,svc2]);
-// var ssvc2 = bezierMappata_2D([svc3,svc4]);
-
-
-// // seduta orizzontale
-// var so1 = [[3.17, 1.43,0.5], [4.16, 1.54,0.5], [4.28, 1.54,0.5], [5.43, 1.68,0.5]];
-// var so1 = BEZIER(S0)(so1);
-
-// var so2 = [[3.13, 1.93,0.5], [4.19, 2.05,0.5], [4.03, 2.03,0.5], [5.38, 2.2,0.5]];
-// var so2 = BEZIER(S0)(so2);
-
-// var so1d = [[3.17, 1.43,4], [4.16, 1.54,4], [4.28, 1.54,4], [5.43, 1.68,4]];
-// var so1d = BEZIER(S0)(so1d);
-
-// var so2d = [[3.13, 1.93,4], [4.19, 2.05,4], [4.03, 2.03,4], [5.38, 2.2,4]];
-// var so2d = BEZIER(S0)(so2d);
-
-// var soc1 = [[2.67, 1.34,0.5],[3.18, 1.42,0.5]];
-// var soc1 = BEZIER(S0)(soc1);
-
-// var soc2 = [[2.67, 1.34,4],[3.18, 1.42,4]];
-// var soc2 = BEZIER(S0)(soc2);
-
-// var soc3 = [[2.38, 3.91,0.5],[2.9, 3.97,0.5]];
-// var soc3 = BEZIER(S0)(soc3);
-
-// var soc4 = [[2.38, 3.91,4],[2.9, 3.97,4]];
-// var soc4 = BEZIER(S0)(soc4);
-
-// var sso1 = bezierMappata_2D([so1,so2]);
-// var sso2 = bezierMappata_2D([so1d,so2d]);
-// var sso3 = bezierMappata_2D([so1,so1d]);
-// var sso4 = bezierMappata_2D([so2,so2d]);
-// var ssoc1 = bezierMappata_2D([soc1,soc2]);
-// var ssoc2 = bezierMappata_2D([soc3,soc4]);
-
-
-
-// var seduta = COLOR([255/255,0/255,0/255])(STRUCT([ssv1,ssv2,ssv3,ssv4,ssvc1,ssvc2,sso1,sso2,sso3,sso4]));
+var mezzaSedia1 = halfStructure(z_init);
+var mezzaSedia2 = halfStructure(z_end);
 
 
 // seduta verticale
-var sv1 = [[2.66, 1.35,0.5], [2.39, 3.91,0.5]];
+var sv1 = [[2.66, 1.35,z_init+0.5], [2.39, 3.91,z_init+0.5]];
 var sv1 = BEZIER(S0)(sv1);
 
-var sv2 = [[3.18, 1.41,0.5], [2.9, 3.97,0.5]];
+var sv2 = [[3.18, 1.41,z_init+0.5], [2.9, 3.97,z_init+0.5]];
 var sv2 = BEZIER(S0)(sv2);
 
-var sv1d = [[2.66, 1.35,4], [2.39, 3.91,4]];
+var sv1d = [[2.66, 1.35,z_end-0.5], [2.39, 3.91,z_end-0.5]];
 var sv1d = BEZIER(S0)(sv1d);
 
-var sv2d = [[3.18, 1.41,4], [2.9, 3.97,4]];
+var sv2d = [[3.18, 1.41,z_end-0.5], [2.9, 3.97,z_end-0.5]];
 var sv2d = BEZIER(S0)(sv2d);
 
-var svc1 = [[2.66, 1.35,0.5],[3.18, 1.41,0.5]];
+var svc1 = [[2.66, 1.35,z_init+0.5],[3.18, 1.41,z_init+0.5]];
 var svc1 = BEZIER(S0)(svc1);
 
-var svc2 = [[2.66, 1.35,4],[3.18, 1.41,4]];
+var svc2 = [[2.66, 1.35,z_end-0.5],[3.18, 1.41,z_end-0.5]];
 var svc2 = BEZIER(S0)(svc2);
 
-var svc3 = [[2.39, 3.91,0.5],[2.9, 3.97,0.5]];
+var svc3 = [[2.39, 3.91,z_init+0.5],[2.9, 3.97,z_init+0.5]];
 var svc3 = BEZIER(S0)(svc3);
 
-var svc4 = [[2.39, 3.91,4],[2.9, 3.97,4]];
+var svc4 = [[2.39, 3.91,z_end-0.5],[2.9, 3.97,z_end-0.5]];
 var svc4 = BEZIER(S0)(svc4);
 
 var ssv1 = bezierMappata_2D([sv1,sv2]);
@@ -225,28 +162,28 @@ var ssvc1 = bezierMappata_2D([svc1,svc2]);
 var ssvc2 = bezierMappata_2D([svc3,svc4]);
 
 // // seduta orizzontale
-var so1 = [[3.18, 1.41,0.5],[5.5, 1.67,0.5]];
+var so1 = [[3.18, 1.41,z_init+0.5],[5.5, 1.67,z_init+0.5]];
 var so1 = BEZIER(S0)(so1);
 
-var so2 = [[3.11, 1.94,0.5],[5.38, 2.18,0.5]];
+var so2 = [[3.11, 1.94,z_init+0.5],[5.38, 2.18,z_init+0.5]];
 var so2 = BEZIER(S0)(so2);
 
-var so1d = [[3.18, 1.41,4],[5.5, 1.67,4]];
+var so1d = [[3.18, 1.41,z_end-0.5],[5.5, 1.67,z_end-0.5]];
 var so1d = BEZIER(S0)(so1d);
 
-var so2d = [[3.11, 1.94,4],[5.38, 2.18,4]];
+var so2d = [[3.11, 1.94,z_end-0.5],[5.38, 2.18,z_end-0.5]];
 var so2d = BEZIER(S0)(so2d);
 
-var soc1 = [[3.18, 1.41,0.5],[3.11, 1.94,0.5]];
+var soc1 = [[3.18, 1.41,z_init+0.5],[3.11, 1.94,z_init+0.5]];
 var soc1 = BEZIER(S0)(soc1);
 
-var soc2 = [[3.18, 1.41,4],[3.11, 1.94,4]];
+var soc2 = [[3.18, 1.41,z_end-0.5],[3.11, 1.94,z_end-0.5]];
 var soc2 = BEZIER(S0)(soc2);
 
-var soc3 = [[5.5, 1.67,0.5],[5.38, 2.18,0.5]];
+var soc3 = [[5.5, 1.67,z_init+0.5],[5.38, 2.18,z_init+0.5]];
 var soc3 = BEZIER(S0)(soc3);
 
-var soc4 = [[5.5, 1.67,4],[5.38, 2.18,4]];
+var soc4 = [[5.5, 1.67,z_end-0.5],[5.38, 2.18,z_end-0.5]];
 var soc4 = BEZIER(S0)(soc4);
 
 var sso1 = bezierMappata_2D([so1,so2]);
@@ -260,9 +197,6 @@ var ssoc2 = bezierMappata_2D([soc3,soc4]);
 var sedutaVerticale = COLOR([255/255,0/255,0/255])(STRUCT([ssv1,ssv2,ssv3,ssv4,ssvc1,ssvc2]));
 var sedutaOrizzontale = COLOR([255/255,0/255,0/255])(STRUCT([sso1,sso2,sso3,sso4,ssoc1,ssoc2]));
 
-
-var mezzaSedia1 = halfStructure(0);
-var mezzaSedia2 = halfStructure(4.5);
 
 var sedia = STRUCT([mezzaSedia1, mezzaSedia2,sedutaVerticale, sedutaOrizzontale]);
 

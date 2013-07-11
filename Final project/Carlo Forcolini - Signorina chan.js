@@ -294,5 +294,6 @@ var cuscinoBasso = STRUCT([strutturaBassa, p3]);
 
 
 var sedia = STRUCT([strutturaCurva, gambe, basi,cuscinoAlto, cuscinoMedio, cuscinoBasso]);
+sedia = T([0,1,2])([-4,-1.4,-2.3])(sedia);
 
 DRAW(sedia);
