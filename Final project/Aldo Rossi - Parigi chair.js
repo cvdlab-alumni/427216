@@ -199,5 +199,6 @@ var sedutaOrizzontale = COLOR([255/255,0/255,0/255])(STRUCT([sso1,sso2,sso3,sso4
 
 
 var sedia = STRUCT([mezzaSedia1, mezzaSedia2,sedutaVerticale, sedutaOrizzontale]);
+sedia = T([0,1,2])([-4,-0.1,-2.2])(sedia);
 
 DRAW(sedia);
